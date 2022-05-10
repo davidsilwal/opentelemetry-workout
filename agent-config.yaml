@@ -1,0 +1,13 @@
+﻿tempo:
+  configs:
+  - name: default
+    push_config:
+      endpoint: grafana
+      basic_auth:
+        username: admin
+        password: password
+
+    receivers:
+      otlp:
+        protocols:
+          grpc:
