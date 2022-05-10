@@ -123,7 +123,6 @@ app.MapGet("/weatherforecast", () =>
        ))
         .ToArray();
     activity?.SetTag("forecast_count", forecast.Count());
-
     return forecast;
 })
 .WithName("GetWeatherForecast");
