@@ -70,6 +70,8 @@ var metrics = AppMetrics.CreateDefaultBuilder()
 builder.Services.AddMetrics(metrics);
 builder.Services.AddMetricsTrackingMiddleware();
 
+builder.Host.UseMetricsWebTracking();
+
 builder.WebHost.UseMetrics(options =>
 {
     options.EndpointOptions = endpointsOptions =>
