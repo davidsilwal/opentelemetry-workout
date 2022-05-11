@@ -26,8 +26,15 @@ builder.Services.AddOpenTelemetryMetrics(builder =>
     builder.AddAspNetCoreInstrumentation();
     builder.AddMeter(appName);
     builder.AddOtlpExporter(options => options.Endpoint = oltpUrl);
-    builder.AddPrometheusExporter();
     builder.AddConsoleExporter();
+
+    builder.AddPrometheusExporter(options =>
+    {
+        options.StartHttpListener = true;
+        // Use your endpoint and port here
+        options.HttpListenerPrefixes = new string[] { $"http://prometheus:{9090}/" };
+        options.ScrapeResponseCacheDurationMilliseconds = 0;
+    });
 
 });
 

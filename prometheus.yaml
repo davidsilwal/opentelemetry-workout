@@ -8,3 +8,7 @@
 - job_name: 'api-read'
   static_configs:
     - targets: ['api:80']
+
+- job_name: "prometheus"
+  static_configs:
+   - targets: ["prometheus:9090"]
